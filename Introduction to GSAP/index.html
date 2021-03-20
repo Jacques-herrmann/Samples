@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Green Sock + Parcel</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a class="nav" href="#page1" onclick="changePage('page1')">Animate and Center an Element to a Click Event</a>
+        <a class="nav" href="#page2" onclick="changePage('page2')">Rotate an Element Based on Previous Values</a>
+        <a class="nav" href="#page3" onclick="changePage('page3')">Create Animation Steps</a>
+        <a class="nav" href="#page4" onclick="changePage('page4')">Pause or Resume an Animation by Checking isActive</a>
+        <a class="nav" href="#page5" onclick="changePage('page5')">Manually Control the Animation with progress</a>
+        <a class="nav" href="#page6" onclick="changePage('page6')">Animate From a Variable Point with from and fromTo</a>
+        <a class="nav" href="#page7" onclick="changePage('page7')">Control an Array of Elements with the Same Animation</a>
+        <a class="nav" href="#page8" onclick="changePage('page8')">Stop Animations with killTweensOf and killAll</a>
+        <a class="nav" href="#page9" onclick="changePage('page9')">Animate Between CSS Classes</a>
+        <a class="nav" href="#page10" onclick="changePage('page10')">Spin Elements in 3d</a>
+        <a class="nav" href="#page11" onclick="changePage('page11')">Control the Shared 3d Perspective of Multiple Elements</a>
+        <a class="nav" href="#page12" onclick="changePage('page12')">Loop a Tween Forever Using Yoyo and Repeat</a>
+        <a class="nav" href="#page13" onclick="changePage('page13')">Custom creation based on tutorial</a>
+        <a class="nav active" href="#page14" onclick="changePage('target')">Other</a>
+    </div>
+    <div class="page" id="page1"><div id="box"><img src="public/mr%20larbin.png" alt="Mr. Larbin"></div><span>Click anywhere</span></div>
+    <div class="page" id="page2"><div id="box2"></div></div>
+    <div class="page" id="page3"><div id="box3"></div></div>
+    <div class="page" id="page4"><div id="box4"></div></div>
+    <div class="page" id="page5"><div id="box5"></div></div>
+    <div class="page" id="page6"><div id="box6"></div></div>
+    <div class="page" id="page7"></div>
+    <div class="page" id="page8"></div>
+    <div class="page" id="page9"></div>
+    <div class="page" id="page10"></div>
+    <div class="page" id="page11"></div>
+    <div class="page" id="page12"><div id="box12"><img src="public/mr%20larbin.png" alt="Mr. Larbin" id="larbin"></div></div>
+    <div class="page" id="page13"><img id="larbinbox" src="public/meeseeksBox.png" alt="box"></div>
+
+    <div class="page" id="target">
+        <div class="space" style="height: 600px"></div>
+        <div class="trigger" style="position: absolute; top: 921px"></div>
+        <div style="height: 2300px; width: 100%; position: absolute">
+            <div id="dot0" class="dot" style="left: 58px; top: 121px"></div>
+            <div id="titleappear0" class="apparition" style="width:400px; height: 60px; background-color: #3e77f2; color: white; opacity: 0; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)">BESOIN</div>
+            <div id="divappear0" class="apparition" style="width:600px; height: 350px; opacity: 0; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"></div>
+            <div id="dot1" class="dot" style="left: 772px; top: 598px"></div>
+            <div id="dot2" class="dot" style="left: 40px; top: 985px"></div>
+            <div id="dot3" class="dot" style="left: 772px; top: 1372px"></div>
+            <div id="dot5" class="dot" style="left: 40px; top: 1759px"></div>
+            <div id="dot6" class="dot" style="left: 756px; top: 2240px"></div>
+
+            <svg width="100%" height="100%">
+                <path class="path" visibility="hidden" d="M62.48,65.87h0A465.46,465.46,0,0,0,351.42,333.73L604.73,415a490.3,490.3,0,0,0,72.5,17.76c56.2,9,99.94,58.19,99.88,116.82"/>
+                <path class="path" visibility="hidden" d="M777.11,550.75 c.06,58.63-43.68,107.84-99.88,116.82h0L182.87,818.38c-16.18,5-32.42,9.91-48.85,14.1-51.12,13-89.56,59.7-89.5,114.67"/>
+                <path class="path" visibility="hidden" d="M44.51,948.75 c-.06,58.63,43.68,107.84,99.88,116.82h0l494.36,153.56c16.18,5,32.42,9.91,48.85,14.1,51.12,13,89.56,59.7,89.5,114.67"/>
+                <path class="path" visibility="hidden" d="M777.11,1346.75c.06,58.63-43.68,107.84-99.88,116.82h0L182.87,1617.08c-16.18,5-32.42,9.91-48.85,14.1-51.12,13-89.56,59.7-89.5,114.67"/>
+                <path class="path" visibility="hidden" d="M44.51,1746.92c-.06,58.63,43.68,107.84,99.88,116.82a491.56,491.56,0,0,1,72.5,17.76l253.31,81.3a465.49,465.49,0,0,1,288.94,267.86h0"/>
+
+
+<!--                <path class="path" d="M62.48,65.87h0A465.46,465.46,0,0,0,351.42,333.73L604.73,415a490.3,490.3,0,0,0,72.5,17.76c56.2,9,99.94,58.19,99.88,116.82"></path>-->
+<!--                <path class="path" d="M44.51,948.75c-.06-58.63,43.68-107.84,99.88-116.82h0L638.76,678.38c16.18-5,32.42-9.92,48.85-14.1,51.12-13,89.56-59.71,89.5-114.67"></path>-->
+<!--                <path class="path" d="M44.51,948.75c-.06,58.63,43.68,107.84,99.88,116.82h0l494.36,153.56c16.18,5,32.42,9.91,48.85,14.1,51.12,13,89.56,59.7,89.5,114.67"></path>-->
+            </svg>
+        </div>
+
+        <div class="space" style="height: 1200px; margin-top: 2300px"></div>
+    </div>
+
+    <script>
+        function changePage(target_id) {
+            let pages = document.getElementsByClassName("page");
+            let pageref = document.getElementsByClassName("nav");
+            for(let i=0; i<pages.length; i++) {
+                if (pages[i].id === target_id) {
+                    pages[i].style.display = "block";
+                    pageref[i].classList.add('active');
+                    if (pages[i].id === "page11" ||pages[i].id === "page13") {
+                        pages[i].style.display = "flex";
+                    }
+                } else {
+                    pages[i].style.display = "none";
+                    if (pageref[i].classList.contains("active")) {
+                        pageref[i].classList.remove("active");
+                      }
+                }
+            }
+        }
+        document.addEventListener("click", (event) => {
+            const {x, y} = event;
+            console.log(x);
+            console.log(y);
+        })
+    </script>
+    <script src="page1.js"></script>
+    <script src="page2.js"></script>
+    <script src="page3.js"></script>
+    <script src="page4.js"></script>
+    <script src="page5.js"></script>
+    <script src="page6.js"></script>
+    <script src="page7.js"></script>
+    <script src="page8.js"></script>
+    <script src="page9.js"></script>
+    <script src="page10.js"></script>
+    <script src="page11.js"></script>
+    <script src="page12.js"></script>
+    <script src="page13.js"></script>
+    <script src="page14.js"></script>
+</body>
+</html>

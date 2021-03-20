@@ -1,0 +1,20 @@
+{
+  "name": "threescene",
+  "version": "1.0.0",
+  "description": "Animating 3D Scene with Three.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "JHN",
+  "license": "ISC",
+  "dependencies": {
+    "sea": "^1.0.2",
+    "see": "0.0.0",
+    "three": "^0.126.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "stylus": "^0.54.8"
+  }
+}

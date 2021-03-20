@@ -1,0 +1,24 @@
+{
+  "name": "web-gl-fake-3d-image",
+  "version": "1.0.0",
+  "description": "Web GL Fake 3D Image Effect (Codrops tutorial) ",
+  "main": "index.js",
+  "scripts": {
+    "run": "webpack serve --hot --config webpack.config.js"
+  },
+  "author": "JHN",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "glslify-loader": "^2.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.21.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

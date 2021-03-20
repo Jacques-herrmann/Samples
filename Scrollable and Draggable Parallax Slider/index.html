@@ -1,0 +1,108 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Draggable & Scrollable Parallax Slider</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="app">
+    <main>
+      <button class="menu-button js-slider-open">
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+      </button>
+      <section class="content js-content">
+        <div class="container">
+          <h1>Draggable & Scrollable Parallax Slider</h1>
+        </div>
+      </section>
+<!--         Placeholder Image-->
+      <div class="placeholder js-placeholder">
+        <div class="placeholder__img-wrap js-img-wrap" style="--aspect-ratio: 0.8;">
+          <img class="placeholder__img" src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+        </div>
+        <div class="placeholder__img-wrap js-img-wrap" style="--aspect-ratio: 0.8;">
+          <img class="placeholder__img" src="https://images.unsplash.com/photo-1566688342604-dbe3e7357104?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80&ar=0.8">
+        </div>
+        <div class="placeholder__img-wrap js-img-wrap" style="--aspect-ratio: 0.8;">
+          <img class="placeholder__img" src="https://images.unsplash.com/photo-1472835560847-37d024ebacdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+        </div>
+      </div>
+      <!--   Content   -->
+      <div class="slider js-slider">
+<!--        <button>Close</button>-->
+        <div class="slider__container js-container" data-scroll>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Indigo</h2>
+              </div>
+            </div>
+          </div>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1566688342604-dbe3e7357104?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Rouge</h2>
+              </div>
+            </div>
+          </div>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1472835560847-37d024ebacdc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Jaune</h2>
+              </div>
+            </div>
+          </div>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1541320823636-40247af897bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Orange</h2>
+              </div>
+            </div>
+          </div>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1566787020216-3e4f973ec5ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Vert</h2>
+              </div>
+            </div>
+          </div>
+          <div class="slider__item js-item" style="--aspect-ratio: 0.8;">
+            <div class="slider__item-img-wrap js-img-wrap js-img" data-index="1" style="--aspect-ratio: 0.8;">
+              <img class="slider__item-img" src="https://images.unsplash.com/photo-1523181729404-8a3b7b6f918d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80&ar=0.8">
+            </div>
+            <div class="slider__item-content">
+              <div class="slider__item-heading-wrap">
+                <h2 class="slider__item-heading js-heading">Bleu</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider__progress-wrap js-progress-wrap">
+          <div class="slider__progress js-progress"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.cursor
+  display block
+
+  &__inner
+    z-index 9999
+    pointer-events none
+    position absolute
+    top 0
+    left 0
+    mix-blend-mode difference
+    border-radius 50%
+
+    &--dot
+      width 8px
+      height 8px
+      background --white-color
+
+    &--circle
+      width 40px
+      height 40px
+      border 1px solid --white-color

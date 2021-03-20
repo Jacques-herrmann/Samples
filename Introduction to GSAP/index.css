@@ -1,0 +1,140 @@
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+h1{
+    font-weight: bold;
+    font-size: 34px;
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+.page {
+    margin-left: 350px;
+    padding: 1px 16px;
+    height: 90vh;
+    display: none;
+}
+
+/*Page 1*/
+#target {
+    display: block;
+    text-align: center;
+    position: relative;
+}
+#page1 span {
+    position: absolute;
+    opacity: 0.6;
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+#box{
+    width: 120px;
+    height: 120px;
+}
+#box img{
+    height: 100%;
+    width: 100%;
+}
+
+.box9 {
+    width: 120px;
+    height: 120px;
+    background-color: #7feb76;
+}
+.hover {
+    box-shadow: 0 1rem 1rem;
+}
+.down {
+    background-color: #263a9e;
+}
+.box10 {
+    width: 120px;
+    height: 120px;
+    margin-left: 500px;
+    margin-top: 400px;
+    background-color: #80859b;
+}
+
+#page11 {
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.box11 {
+    width: 120px;
+    height: 120px;
+    background-color: #f2e365;
+}
+
+#box12{
+    width: 120px;
+    height: 120px;
+    margin-left: 500px;
+    margin-top: 400px;
+}
+#box12 img{
+    height: 100%;
+    width: 100%;
+}
+
+#larbinbox {
+    height: 100px;
+    width: 100px;
+    margin-left: 580px;
+    margin-top: 400px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.larbinimg {
+    position: relative;
+}
+
+/*------------------------------*/
+svg {
+    position: relative;
+}
+.path {
+    fill: none;
+    stroke: #3e77f2;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    box-shadow: 0 0 15px #3e77f2 ;
+    /*background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));*/
+}
+.dot {
+    position: relative;
+    background-color: #3e77f2;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+}

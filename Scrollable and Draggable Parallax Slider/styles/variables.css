@@ -1,0 +1,25 @@
+:root{
+    --primary-color: #f7f5f4;
+    --secondary-color: '';
+    --text-color: #333;
+    --white-color: #fff;
+
+
+    --col-1: calc(100vw / 12 * 1);
+    --col-2: calc(100vw / 12 * 2);
+    --col-3: calc(100vw / 12 * 3);
+    --col-4: calc(100vw / 12 * 4);
+    --col-5: calc(100vw / 12 * 5);
+    --col-6: calc(100vw / 12 * 6);
+    --col-7: calc(100vw / 12 * 7);
+    --col-8: calc(100vw / 12 * 8);
+    --col-9: calc(100vw / 12 * 9);
+    --col-10: calc(100vw / 12 * 10);
+    --col-11: calc(100vw / 12 * 11);
+    --col-12: calc(100vw / 12 * 12);
+
+
+    --box-shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --box-shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --box-shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}

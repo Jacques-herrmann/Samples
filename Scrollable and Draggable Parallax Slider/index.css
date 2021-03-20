@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'); /* Material design Icon */
+
+@import "./styles/reset.css";
+@import "./styles/variables.css";
+@import "./styles/aspect-ratio.css";
+@import "./styles/menu-button.css";
+@import "./styles/placeholder.css";
+@import "./styles/slider.css";
+
+/* Base */
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1vw;
+    color: var(--text-color);
+}
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    overscroll-behavior-y: none;
+}
+section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+h2 {
+    font-size: 3em;
+    font-weight: bold;
+}
+.app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--primary-color);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0;
+    align-items: start;
+    position: relative;
+}
+.container > h1 {
+    grid-column: 5/12;
+}

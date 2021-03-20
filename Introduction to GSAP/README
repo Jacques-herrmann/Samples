@@ -1,0 +1,24 @@
+# Quick GreenSock tutorial
+Egghead.io beginner tutorial for 'Creating Amazing Animations with GreeSock'
+
+##Setup GreenSock as a Module with Parcel
+First create a new project forlder, open a terminal in it and install parcel (npm or yarn)
+`> npm install parcel-bundler`
+
+Then create the package.json file and copy this code line inside (assuming index.html is your entry point):
+
+```json
+{
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
+```
+Run the application : `npm run dev`
+
+See. 
+- Parcel documentation : [Parcel](https://parceljs.org/getting_started.html)
+- Egghead tutorial : [Egghead](https://egghead.io/lessons/greensock-setup-greensock-as-a-module-with-parcel)

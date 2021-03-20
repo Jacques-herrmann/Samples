@@ -1,0 +1,21 @@
+{
+  "name": "sticky-image-effect",
+  "version": "1.0.0",
+  "description": "ThreeJS Sticky Image Effect - https://tympanus.net/codrops/2019/04/10/how-to-create-a-sticky-image-effect-with-three-js/",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "JHN",
+  "license": "ISC",
+  "devDependencies": {
+    "glslify-bundle": "^5.1.1",
+    "glslify-deps": "^1.3.2",
+    "parcel-bundler": "^1.12.5",
+    "stylus": "^0.54.8"
+  },
+  "dependencies": {
+    "popmotion": "^8.6.4",
+    "three": "^0.126.1"
+  }
+}
