@@ -1,0 +1,16 @@
+.features {
+    height: 45vh;
+    width: 100%;
+    margin: 0;
+}
+.features text {
+    font-size: 20vh;
+    stroke: #000;
+    stroke-width: .5mm;
+    fill: transparent;
+    paint-order: stroke;
+    transition: fill 1s;
+}
+.features:hover text {
+    fill: #000;
+}
