@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+#bg {
+    transition: background-color 1s ease-in-out;
+}
+.bg {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+#holder {
+    width: 100%;
+    max-width: 500px;
+    margin: 75vh auto 0;
+    transition: all .5s ease-in-out;
+    transform-origin: 50% 50%;
+}
+.page {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 8px;
+}
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+.mySlides {
+    display: none;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+.mySlides img {
+    width: 100%;
+}
+nav {
+    height: 90px;
+    width: 100%;
+    padding: 5px 15px;
+}
+.left {
+    float: left;
+}
+nav .left img {
+    padding-top: 10px;
+    width: 100px;
+}
+.right {
+    float: right;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+}
+nav li {
+    text-align: center;
+    display: inline;
+}
+a {
+    text-decoration: none;
+    padding: 10px;
+    color: #333;
+    display: inline-block;
+    font-size: 0.8em;
+    border-bottom: 2px solid #727171;
+    transition: 0.5s all;
+    text-transform: uppercase;
+}
+a:hover {
+    color: #fff;
+    background: rgba(25, 40, 44, 0.61);
+}
+.model {
+    width: 40%;
+}
+.captions {
+    width: 40%;
+}
+.left .text {
+    text-align: left;
+}
+.right .text {
+    right: 5px;
+    text-align: right;
+}
+.leftEdge {
+    position: absolute;
+    transform-origin: 0% 100%;
+    top: 25vh;
+    left: 25px;
+    font-size: 0.8em;
+    transform: rotateZ(90deg);
+}
+.rightEdge {
+    position: absolute;
+    top: 35vh;
+    right: 25px;
+    width: 20px;
+}
+.dot{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    margin: 2px 0;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: inline-block;
+    transition: background-color .6s ease;
+}
+.stage {
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    perspective: 1200px;
+}
+.text {
+    position: absolute;
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+    color: #4e4e4e;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: transform 0.3s, opacity 0.3s;
+    transition-delay: 0.5s;
+    opacity: 0;
+}
+.text span {
+    font-weight: 400;
+}
+.on {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+#red {
+    background-color: #fccece;
+}
+#white {
+    background-color: #fff;
+}
+#blue {
+    background-color: #d3e8fd;
+}
+#green {
+    background-color: #d5ffeb;
+}
+#red:hover {
+    background-color: #ff9494;
+}
+#blue:hover {
+    background-color: #92c7fd;
+}
+#green:hover {
+    background-color: #94fdcb;
+}
+.hide {
+    display: none;
+}
+.fade {
+    display: block;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease-out;
+    animation-name: fade;
+    animation-duration: 0.5s;
+    transform-origin: 50% 150%;
+    animation-timing-function: ease-out;
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: 0;
+        transform: rotate3d(0, 0, 1, 60deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: rotate3d(0, 0, 1, 60deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+.fadeOut {
+    display: block;
+    -webkit-animation-name: fadeOut;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-timing-function: ease-out;
+    animation-name: fadeOut;
+    animation-duration: 0.3s;
+    transform-origin: 50% 150%;
+    animation-timing-function: ease-out;
+}
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    to {
+        opacity: 0;
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+    to {
+        opacity: 0;
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+}

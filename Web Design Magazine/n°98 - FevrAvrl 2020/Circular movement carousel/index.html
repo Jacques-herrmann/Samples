@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular movement carousel</title>
+    <link href="https://fonts.googleapis.com/css?family=Darker+Grotesque:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design.css">
+</head>
+
+<body id="bg">
+    <div class="bg">
+        <div id="holder">
+            <img src="img/cog.svg" alt="cog">
+        </div>
+    </div>
+    <div class="page">
+        <nav>
+            <div class="left">
+                <img src="img/logo.svg" alt="logo">
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="slideshow-container">
+            <div class="mySlides fade" onclick="plusSlides(1)">
+                <img src="img/classic.png" alt="classic bike">
+            </div>
+            <div class="mySlides" onclick="plusSlides(1)">
+                <img src="img/cruiser.png" alt="cruiser bike">
+            </div>
+            <div class="mySlides" onclick="plusSlides(1)">
+                <img src="img/hercules.png" alt="hercules bike">
+            </div>
+        </div>
+        <div class="leftEdge">TWITTER | FACEBOOK | INSTAGRAM</div>
+        <div class="rightEdge">
+            <div id="white" class="dot" onclick="change('#fff')"></div>
+            <div id="red" class="dot" onclick="change('#ffe8e8')"></div>
+            <div id="blue" class="dot" onclick="change('#e6f2ff')"></div>
+            <div id="green" class="dot" onclick="change('#e4fff2')"></div>
+        </div>
+        <div class="model left stage">
+            <div class="md text on">Raleigh Classic Men</div>
+            <div class="md text">Style Cruiser Ladies</div>
+            <div class="md text">Hercules Popular Uni</div>
+        </div>
+        <div class="captions right stage">
+            <div class="cp text on">
+                RCM103637<br>
+                <span>Classic town bicycle in black and chrome</span>
+            </div>
+            <div class="cp text">
+                SCL557990<br>
+                <span>Beach Cruiser bicycle fixed wheel, black and chrome</span>
+            </div>
+            <div class="cp text">
+                HPU902360<br>
+                <span>Unisex cycle for everywhere, marron and chrome</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let slideIndex = 1;
+        let lastSlide = 1;
+        const slides = document.getElementsByClassName('mySlides');
+        const models = document.getElementsByClassName('md');
+        const captions = document.getElementsByClassName('cp');
+        const cog = document.getElementById('holder')
+        let dir = 0;
+        const bg = document.getElementById('bg')
+
+        function plusSlides(n) {
+            lastSlide = slideIndex;
+            showSlides(slideIndex += n);
+        }
+        function change(c) {
+            bg.style.backgroundColor = c;
+        }
+        function showSlides(n) {
+            slides[lastSlide - 1].classList.remove('fade');
+            slides[lastSlide - 1].classList.add('fadeOut');
+            dir -= 20;
+            for(i = 0; i < models.length; i++) {
+                models[i].classList.remove("on");
+                captions[i].classList.remove("on");
+            }
+            holder.style.transform = 'rotate' + dir + 'deg)';
+            setTimeout(() => {
+                var i;
+                if(n > slides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+                slides[lastSlide - 1].classList.remove("fadeOut");
+                slides[lastSlide - 1].classList.add("hide");
+                slides[slideIndex - 1].classList.add("fade");
+                models[slideIndex - 1].classList.add("on");
+                captions[slideIndex - 1].classList.add("on");
+            }, 280)
+        }
+    </script>
+</body>
+
+</html>
