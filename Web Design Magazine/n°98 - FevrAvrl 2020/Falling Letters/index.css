@@ -1,0 +1,33 @@
+.letters span {
+    position: fixed;
+    top: -25vw;
+    font-size: 20vw;
+    animation: falling 10s ease-in-out infinite, rotate 5s linear infinite;
+}
+
+.letters span:nth-child(2n) {
+    animation-direction: normal, reverse;
+}
+.letters span:nth-child(4n) {
+    color: rgba(0, 0, 0, .25);
+}
+.letters span:nth-child(4n - 1) {
+    color: rgba(0, 0, 0, .5);
+}
+.letters span:nth-child(4n - 3) {
+    color: rgba(0, 0, 0, .75);
+}
+.letters span:nth-child(4n - 3) {
+    color: rgb(0, 0, 0);
+}
+.letters span:hover {
+    color: #d452fe; !important;
+}
+
+@keyframes falling {
+    to { top: 110vh;}
+}
+@keyframes rotate {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(360deg)}
+}
