@@ -19,9 +19,10 @@ window.addEventListener('load', () => {
     }
 
     window.addEventListener('scroll', (ev) => {
+        console.log(window.scrollY);
         let scrollUp = (window.lastScrollY < window.scrollY);
         const nodes = document.querySelectorAll('h1 > *');
-        if (window.scrollY < 400 + MAX_HEIGHT) {
+        if (window.scrollY < MAX_HEIGHT) {
             for(let i=0; i < nodes.length; i++) {
                 const speed = nodes[i].speed;
                 if (scrollUp) {
