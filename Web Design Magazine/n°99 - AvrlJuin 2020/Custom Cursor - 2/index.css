@@ -1,0 +1,25 @@
+a[data-icon] {
+    cursor: none;
+}
+.cursor {
+    position: fixed;
+    display: none;
+    z-index: 99999;
+    width: 5em;
+    height: 5em;
+}
+.cursor[data-icon="1"] {
+    background: orange;
+}
+.cursor[data-icon="2"] {
+    background: red;
+}
+.cursor[data-icon="3"] {
+    background: blue;
+}
+.cursor[data-icon="image"] {
+    width: 300px;
+    height: 150px;
+    background: url(image.jpg);
+    background-size: 100%;
+}

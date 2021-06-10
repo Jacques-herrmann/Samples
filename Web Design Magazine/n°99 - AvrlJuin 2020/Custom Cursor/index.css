@@ -1,0 +1,22 @@
+a:hover {
+    cursor: none;
+    background: blue;
+    color: white;
+}
+.cursor {
+    position: fixed;
+    display: none;
+    background: red;
+    z-index: 99999;
+    width: 5em;
+    height: 5em;
+}
+.cursor[data-icon="1"] {
+    background: blue;
+}
+.cursor[data-icon="2"] {
+    background: green;
+}
+.cursor[data-icon="3"] {
+    background: yellow;
+}
