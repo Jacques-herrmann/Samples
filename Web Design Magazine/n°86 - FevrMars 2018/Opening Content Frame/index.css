@@ -1,0 +1,44 @@
+article {
+    display: block;
+    position: fixed;
+    background: #000000;
+    color: #ffffff;
+    overflow: hidden;
+    z-index: 9999;
+    left: 0;
+    top: 50vh;
+    width: 100vw;
+    height: 0;
+    padding: 0;
+    transition: all 1s;
+    transition-timing-function: ease-in;
+}
+article:target {
+    top: 0;
+    height: 100vh;
+}
+article [data-button="fermer"] {
+    position: fixed;
+    display: block;
+    background: #c00;
+    color: #ffffff;
+    padding: 1em;
+    width: 1em;
+    height: 1em;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+}
+article [data-button="fermer"]:hover {
+    background: #ffffff;
+    color: #cc0000;
+}
+article > section {
+    display: block;
+    opacity: 0;
+    transition: opacity 1s;
+    transition-delay: 1s;
+}
+article:target > section {
+    opacity: 1;
+}
