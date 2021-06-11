@@ -1,0 +1,17 @@
+[data-animation="boom"].active {
+    animation: boom 1s;
+}
+article {
+    display: block;
+    min-height: 100vh;
+}
+
+img {
+    width:40vw;
+}
+
+@keyframes boom {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1);}
+}
