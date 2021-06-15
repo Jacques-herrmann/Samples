@@ -1,0 +1,51 @@
+[data-box="1"] {
+    background: url("image.jpg");
+    background-size: cover;
+}
+[data-box="2"] {
+    background: coral;
+}
+[data-expand] {
+    position: relative;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 100%;
+    transition: all 1s;
+}
+[data-expand] > section {
+    opacity: 0;
+    width: 50%;
+    height: 50%;
+    margin: 10% auto 0 auto;
+    transition: all 1s;
+}
+[data-expand] > [data-control],[data-expand] > [data-control]::before {
+    position: absolute;
+    display: block;
+    background: silver;
+    color: #000000;
+    width: 1cm;
+    height: 1cm;
+    font-size: 1cm;
+    text-align: center;
+    border-radius: 100%;
+}
+[data-expand] > [data-control="expand"]::before{
+    content: "+";
+}
+[data-expand="open"] {
+    position: fixed;
+    width: 50vw;
+    height: 50vw;
+    top: 20vh;
+    left: 25vh;
+}
+[data-expand="open"] > section {
+    opacity: 1;
+}
+[data-expand="open"] > [data-control="expand"]::before{
+    content: "-";
+}
