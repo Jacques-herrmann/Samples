@@ -56,9 +56,9 @@
 const tl = new TimelineMax({ repeat: -1, yoyo: true }); // infinite
 tl.add(TweenMax.to(".image", 1, { x: 50 }));
 // note the final “0” to make this one start at 0 sec.
-tl.add(TweenMax.to(".image", 1, {y: 100} ), "0");
+tl.add(TweenMax.to(".image", 1, { y: 100 }), "0");
 //note the “+.25” to make thisone start at .25 sec
-tl.add(TweenMax.to(".image", 1, { rotationY: 180, y: 50, x: 50}), "+.25");
+tl.add(TweenMax.to(".image", 1, { rotationY: 180, y: 50, x: 50 }), "+.25");
 
 // get the current duration of the timeline
 console.log(tl.duration());
