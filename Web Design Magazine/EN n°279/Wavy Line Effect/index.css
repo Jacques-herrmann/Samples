@@ -1,0 +1,51 @@
+html, body {
+    display: block;
+    height: 100%;
+    background: #000;
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+}
+
+nav {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+nav > *:first-child {
+    position: absolute;
+    top: -80%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 30%;
+    transform-origin: 50% 45%;
+    animation: spin 5s infinite linear;
+}
+
+nav > *:last-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 2em;
+}
+
+nav > *:last-child a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    margin-top: .5em;
+}
+
+@keyframes spin {
+    from { transform: rotate(360deg) }
+    to { transform: rotate(0deg) }
+}
