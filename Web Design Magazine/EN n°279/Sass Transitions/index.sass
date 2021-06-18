@@ -1,0 +1,158 @@
+$blue: #8dc3e2
+$mainFont: "Lato"
+$easing: cubic-bezier(0.68, 0.11, 0.66, 0.27)
+
+body
+  font-family: $mainFont
+  line-height: 1.6
+  margin-top: 3em
+
+h2
+  font-size: 3em
+  margin: 0
+  text-align: left
+  position: relative
+  transform: translate(50%)
+  transition: all 500ms ease
+
+.item-inner
+  position: relative
+  right: 0
+
+.container
+  max-width: 900px
+  margin: auto
+  display: flex
+  align-items: center
+
+.item
+  width: 40%
+  padding: 6em 0
+
+figure
+  margin: 0
+
+.has-content
+  position: relative
+  z-index: 4
+
+.section-title
+  overflow: hidden
+  position: relative
+  margin: 0
+  & span
+    display: inline-block
+    transform: translateY(100%)
+    position: relative
+    transition: transform 400ms ease-in-out
+
+.outer-content
+  overflow: hidden
+  position: relative
+  & p
+    position: relative
+    opacity: 0
+    transition: all 500ms ease
+    transform: translateY(30%)
+
+.more-btn
+  cursor: pointer
+  display: inline-block
+  color: #999
+  text-decoration: none
+  border: 1px solid #ddd
+  padding: 15px
+
+.has-img
+  width: 60%
+  position: relative
+
+.bg
+  position: absolute
+  top: 0
+  left: 0
+  width: 0
+  height: 100%
+  background: $blue
+  transition: all 600ms $easing
+
+.display
+  display: flex
+  max-width: 60%
+  margin: auto
+  position: relative
+  z-index: 6
+
+.trainers
+  width: 100%
+  & img
+    width: 100%
+    transform: translateY(20px)
+    transition: all 500ms ease-in-out
+    opacity: 0
+
+// On load transition
+.load-page
+  & .bg
+    width: 100%
+    transition-delay: 300ms
+  & .section-title span
+    transition-delay: 600ms
+    transform: translateY(0)
+  & .outer-content p
+    opacity: 1
+    transition-delay: 1000ms
+    transform: translateY(0)
+  & .more-btn
+    opacity: 1
+    transition-delay: 1200ms
+    transform: translateY(0)
+  & .trainers img
+    transition-delay: 600ms
+    transform: translateY(0)
+    opacity: 1
+
+.is-img--content
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  z-index: 5
+  visibility: hidden
+
+.is-img--content_inner
+    padding: 0 1em
+    & p
+      transform: translateY(60px)
+      position: relative
+      opacity: 0
+      transition: all 500ms ease
+
+.is-reading
+  & .bg
+    width: 0
+    left: auto
+    right: 0
+    transition-delay: 400ms
+  & h2
+    font-size: 2.3em
+    margin: 0
+    position: relative
+    transform: translateY(0)
+    transition-delay: 300ms
+    transition: all 400ms ease
+  & .trainers img
+    transition-delay: 0ms
+    transform: translateY(20px)
+    opacity: 0
+    visibility: hidden
+  & .is-img--content
+    visibility: visible
+  & .is-img--content_inner
+    padding: 0 1em
+    &>p
+      transform: translateY(0)
+      position: relative
+      opacity: 1
+      transition-delay: 800ms
+      &:nth-child(2)
+        transition-delay: 900ms
