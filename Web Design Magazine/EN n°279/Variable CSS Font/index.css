@@ -1,0 +1,93 @@
+@font-face {
+    font-family: Amstelvar;
+    src: url(./fonts/AmstelvarAlpha-VF.ttf);
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Amstelvar;
+    background: url("./img/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+}
+.featured {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+}
+.featuredInner {
+    margin: auto auto;
+    text-align: center;
+    width: 60%;
+}
+.button {
+    height: 40px;
+    width: 200px;
+    margin: auto;
+    background-color: #94fdcb;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a {
+    color:  #333;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+/* --- Font variations ---
+wght: weight
+wdth: stretch (width)
+opsz: optical sizing
+YTUC:
+XOPQ: x width of letter
+XTRA: width of the curve
+YOPQ: y height of letter
+YTLC: y height of lower case letters
+YTSE: serif height
+GRAD: grading of letter
+YTAS & YTDE: ascender & descender y height
+*/
+
+h1 {
+    font-size: 10vw;
+    line-height: 0.1;
+    font-weight: 550;
+    font-stretch: 100;
+    font-optical-sizing: 24;
+    font-variation-settings: "wght" 550, "wdth" 100, "opsz" 24, "YTAS" 700, "YTUC" 720;
+}
+.subhead {
+    font-size: 7vw;
+    letter-spacing: .03em;
+    line-height: .2;
+    font-variation-settings: "wght" 100, "wdth" 100, "opsz" 20, "YTUC" 720;
+}
+.kicker::before {
+    content: "";
+    display: block;
+    margin: -4% auto 0;
+    width: 40%;
+    border-bottom: 8px double #ffffff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .4);
+}
+.kicker {
+    font-size: 3.3vw;
+    line-height: 1.5;
+    font-variation-settings: "wght" 156, "wdth" 100, "opsz" 32, "XOPQ" 117, "XTRA" 402, "YOPQ" 45, "YTLC" 600, "YTSE" 9.5, "GRAD" 90, "YTAS" 750, "YTDE" 250, "YTUC" 795;
+}
+.base {
+    margin-top: -2.5%;
+    font-size: 4vw;
+    line-height: 0.1;
+    font-variation-settings: "wght" 156, "wdth" 100, "opsz" 32, "XOPQ" 247, "XTRA" 402, "YOPQ" 45, "YTLC" 600, "YTSE" 9.5, "GRAD" 90, "YTAS" 750, "YTDE" 250, "YTUC" 795, "YTRA" 900, "PWGT" 92, "PWDT" 402;
+}
+.desc {
+    line-height: 1.8;
+}
