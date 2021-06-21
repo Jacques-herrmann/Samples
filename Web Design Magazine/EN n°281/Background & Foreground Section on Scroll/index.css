@@ -1,0 +1,30 @@
+body > *:last-child {
+    position: fixed;
+    top: 25vh;
+    font-size: 25vh;
+    z-index: 1;
+}
+
+section {
+    position: absolute;
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    border: 1em solid green;
+}
+section:nth-of-type(odd) {
+    z-index: 2;
+}
+section:nth-of-type(odd) h2{
+    background: red;
+    margin-top: 50vh;
+    font-size: 3em;
+}
+section:nth-of-type(even) {
+    z-index: 0;
+}
+section:nth-of-type(even) h2{
+    background: silver;
+    margin-top: 75vh;
+    font-size: 3em;
+}
