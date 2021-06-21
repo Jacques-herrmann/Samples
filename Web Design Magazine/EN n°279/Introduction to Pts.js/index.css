@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#pt {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+.header {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    right: 20%;
+    font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: #0bf5f5;
+}
+.header p {
+    font-size: 20px;
+    color: #c67508;
+}
