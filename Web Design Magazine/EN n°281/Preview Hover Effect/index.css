@@ -1,0 +1,57 @@
+body {
+    background: #ff3c00;
+    margin: 0;
+    border: 0;
+    height: 100vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    height: 100vh;
+}
+
+.container {
+    width: 30%;
+    margin: auto;
+}
+
+.element {
+    font-size: 4vw;
+    margin-bottom: 10%;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.7s;
+}
+
+.element:hover {
+    transform: translate3d(-10px, 0, 0) scale(1.3);
+    color: #ff3c00;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.cursor {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform-origin: 50% 50%;
+    transform: translate3d(0, 0, 0);
+}
+.ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: none;
+    transition: all 0.5s;
+}
+.first {
+    transform: scale(8);
+    background: url(img/un.jpg) no-repeat;
+    background-size: cover;
+}
+.second {
+    transform: scale(8);
+    background: url(img/deux.jpg) no-repeat;
+    background-size: cover;
+}
