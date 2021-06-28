@@ -1,0 +1,23 @@
+.dropout {
+    position: relative;
+}
+.dropout > .closing {
+    display: block;
+    animation: close 1s forwards;
+}
+.dropout > img {
+    position: absolute;
+    width: 20em;
+}
+.dropout > img:nth-child(odd) {
+    transform: rotate(5deg);
+}
+.dropout > img:nth-child(even) {
+    transform: rotate(-5deg);
+}
+
+@keyframes close {
+    0% { top: 0; }
+    99% { top: 100vh; }
+    100% { top: -100vh; }
+}
