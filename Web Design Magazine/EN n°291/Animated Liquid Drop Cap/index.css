@@ -1,0 +1,54 @@
+.dropcap {
+    position: relative;
+    display: block;
+    float: left;
+    width: 11em;
+    height: 10em;
+    overflow: hidden;
+}
+.dropcap > .image {
+    display: block;
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    background: white;
+    filter: blur(5px) contrast(10);
+    font-size: 1em;
+}
+.dropcap > .image > span {
+    background: black;
+    position: absolute;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dropcap > .image > span:nth-child(1) {
+    top: 2em;
+    left: 4em;
+    width: 3em;
+    height: 3em;
+    animation: bubble 5s infinite alternate;
+}
+.dropcap > .image > span:nth-child(2) {
+    width: 7em;
+    height: 7em;
+    top: .3em;
+    left: 2em;
+    animation: bounce 3s ease-in-out infinite;
+}
+.dropcap > span:last-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 5em;
+    color: #ffffff;
+    margin: .2em 0 0 .8em;
+}
+
+@keyframes bubble {
+    0%, 10% { transform: translate(-50px) }
+    100% { transform: translate(50px) }
+}
+@keyframes bounce {
+    0%, 100% { transform: scale(1, 0.9) }
+    50% { transform: scale(0.9, 1) }
+}

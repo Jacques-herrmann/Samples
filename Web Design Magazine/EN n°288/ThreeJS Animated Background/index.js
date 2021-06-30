@@ -20,7 +20,7 @@ class WebGL {
 
         this.update = this.update.bind(this);
         this.resize = this.resize.bind(this);
-        this.resize(w, h)
+        this.resize(w, h);
     }
     add(mesh) {
         this.scene.add(mesh);
