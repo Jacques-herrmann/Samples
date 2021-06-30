@@ -1,0 +1,17 @@
+{
+  "name": "threejs-animated-background",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "JHN",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5",
+    "three": "^0.87.0",
+    "three.meshline": "^1.3.0",
+    "utils": "^0.3.1"
+  }
+}
