@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
+    <script src="index.js" async></script>
+    <title>Rippling Background Effect</title>
+</head>
+<body>
+    <nav>
+        <div id="mainLogo">
+            <img src="img/logo.svg">
+        </div>
+        <div class="right">
+            <ul>
+                <li><a href="http://www.crazybump.com/">Your Normal Map</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="distort">
+        <div id="mask"><img src="img/mask.svg" alt=""></div>
+        <div id="shoe" class="bounceIn"><img class="shadowed" src="img/shoe.png" alt=""></div>
+        <div id="intro" class="fadeInLeftBig">
+            <h1>Nike<br>LunaCharge</h1>
+        </div>
+    </div>
+        <svg id="shad" xmlns="http://www.w3.org/2000/svg">
+            <filter id="drop-shadow">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="12" />
+                <feOffset dx="2" dy="12" result="offsetblur" />
+                <feFlood flood-color="rgba(0,0,0,0.4)" />
+                <feComposite in2="offsetblur" operator="in" />
+                <feMerge>
+                    <feMergeNode/>
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </svg>
+    <div class="grid">
+        <div class="col3 md3">
+            <h3>Product Details</h3>
+            <p><strong> Color:</strong> Black
+            <br><strong> Material:</strong> Mesh/ Synthetic
+            <br><strong> Sole:</strong> Air / Rubber</p>
+            <div class="button">ADD TO CART</div>
+        </div>
+        <div class="col3 md3">
+            <h3>Unique Materials</h3>
+            <p>Shared value capacity building radical activate youth revolutionary, NGO rubric collaborative cities. Radical targeted changemaker rubric mobilize. Resilient, inspiring expose the truth natural resources agile.</p>
+        </div>
+        <div class="col3 md3">
+            <img src="img/fabric.jpg" class="rsp">
+        </div>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>
