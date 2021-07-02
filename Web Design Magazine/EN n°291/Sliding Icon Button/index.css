@@ -1,0 +1,43 @@
+button {
+    background: black;
+    color: #ffffff;
+    border: none;
+    font-size: 2em;
+    padding: 0 .5em;
+}
+.icon {
+    position: relative;
+    overflow: hidden;
+    padding-left: 1.25em;
+}
+.icon::after,
+.icon::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    top: 0;
+    left: 0;
+    transition: top 1s, left 1s;
+    background: red;
+}
+.icon::before {
+    top: 1em;
+    left: -1em;
+    background: blue;
+}
+.icon:hover::after {
+    top: -1em;
+    left: 1em;
+}
+.icon:hover::before {
+    top: 0;
+    left: 0;
+}
+.icon.another::after{
+ background: yellow;
+}
+.icon.another::before{
+ background: green;
+}
