@@ -1,0 +1,20 @@
+article {
+    display: flex;
+    min-height: 100vh;
+}
+img {
+    max-width: 60vw;
+}
+article > section {
+    flex: 1;
+}
+article > section:nth-child(2) {
+    position: relative;
+    top: 100vh;
+    opacity: 0;
+    transition: top 3s, opacity 3s;
+}
+article.active > section:nth-child(2) {
+    top: 0;
+    opacity: 1;
+}
