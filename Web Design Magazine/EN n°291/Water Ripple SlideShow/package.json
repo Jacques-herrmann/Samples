@@ -1,0 +1,15 @@
+{
+  "name": "water-ripple-slideshow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "curtainsjs": "^8.1.2",
+    "parcel-bundler": "^1.12.5"
+  }
+}
