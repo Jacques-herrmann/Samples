@@ -1,0 +1,85 @@
+@import 'https://fonts.googleapis.com/css?family=Slabo+27px';
+
+@media screen {
+	body {
+		font-family: 'Slabo 27px', serif;
+		font-size: 16px;
+		text-align: center;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.hero {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: {
+			image: url(https://source.unsplash.com/random);
+			size: cover;
+			position: center center;
+		}
+		&__cover {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #232323;
+			mix-blend-mode: multiply;
+			z-index: 0;
+		}
+		&__content {
+			position: relative;
+			z-index: 2;
+			max-width: 1200px;
+		}
+		h1 {
+			margin: 0;
+			color: white;
+		}
+	}
+}
+
+/////
+//
+// Tutorial Code
+//
+/////
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@mixin fluid-text($min-font-size, $max-font-size, $break-start, $break-end) {
+	
+	/////
+	// Calculations
+	/////
+	
+	$m: (strip-unit($max-font-size) - strip-unit($min-font-size)) / (strip-unit($break-end) - strip-unit($break-start));
+	
+	$b: #{$min-font-size - $m * $break-start};
+	
+	$mx: #{$m * 100vw};
+	
+	/////
+	// Output
+	/////
+	
+	font-size: #{$min-font-size};
+
+	@media (min-width: #{$break-start}) {
+	   font-size: calc(#{$mx} + #{$b});
+	}
+
+	@media (min-width: $break-end) {
+	   font-size: #{$max-font-size};
+	}
+	
+}
+
+h1 {	
+	@include fluid-text(24px, 96px, 720px, 1680px);
+}

@@ -1,0 +1,56 @@
+@import "https://fonts.googleapis.com/css?family=Slabo+27px";
+@media screen {
+  body {
+    font-family: 'Slabo 27px', serif;
+    font-size: 16px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-image: url(https://source.unsplash.com/random);
+    background-size: cover;
+    background-position: center center;
+  }
+  .hero__cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #232323;
+    mix-blend-mode: multiply;
+    z-index: 0;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+  }
+  .hero h1 {
+    margin: 0;
+    color: white;
+  }
+}
+h1 {
+  font-size: 24px;
+}
+@media (min-width: 720px) {
+  h1 {
+    font-size: calc(7.5vw + -30px);
+  }
+}
+@media (min-width: 1680px) {
+  h1 {
+    font-size: 96px;
+  }
+}
