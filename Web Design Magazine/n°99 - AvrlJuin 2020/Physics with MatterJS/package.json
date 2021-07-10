@@ -1,0 +1,15 @@
+{
+  "name": "code-physics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "matter-js": "^0.17.1",
+    "parcel-bundler": "^1.12.5"
+  }
+}
