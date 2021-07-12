@@ -153,6 +153,7 @@ class CameraMouseControl {
         this.camera.lookAt(this.lookAt);
     }
 }
+
 const webgl = new WebGL(windowWidth, windowHeight);
 document.body.appendChild(webgl.dom);
 const windLines = new Wind();
