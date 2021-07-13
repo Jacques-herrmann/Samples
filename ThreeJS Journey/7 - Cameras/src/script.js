@@ -5,7 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 /**
  * 7 - Cameras
  *
- * Camera class is an abstract class, you're not supposed to use it directly. They are five type of camera :
+ * Camera class is an abstract class, you're not supposed to use it directly. They are five types of camera :
  *      1. Array Camera : allow to render the scene from multiple camera on specific areas of the render
  *      2. Stereo Camera : render the scene through two cameras that mimic the eyes to create a parallax effect
  *         (VR, red/blue glasses,...)
