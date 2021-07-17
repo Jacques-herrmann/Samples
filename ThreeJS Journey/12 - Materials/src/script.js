@@ -1,8 +1,11 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import * as dat from 'dat.gui'
 
 const textureLoader = new THREE.TextureLoader()
+const cubeTextureLoader = new THREE.CubeTextureLoader()
+
 const doorTexture = textureLoader.load('/textures/door/color.jpg')
 const alphaTexture = textureLoader.load("/textures/door/alpha.jpg")
 const heightTexture = textureLoader.load("/textures/door/height.jpg")
@@ -13,6 +16,17 @@ const roughnessTexture = textureLoader.load("/textures/door/roughness.jpg")
 const gradientTexture = textureLoader.load('/textures/gradients/3.jpg')
 const matcapTexture = textureLoader.load('/textures/matcaps/3.png')
 
+const cubeEnvironmentMapTexture = cubeTextureLoader.load([
+    '/textures/environmentMaps/1/px.jpg',
+    '/textures/environmentMaps/1/nx.jpg',
+    '/textures/environmentMaps/1/py.jpg',
+    '/textures/environmentMaps/1/ny.jpg',
+    '/textures/environmentMaps/1/pz.jpg',
+    '/textures/environmentMaps/1/nz.jpg'
+])
+
+// Debug
+const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -80,27 +94,98 @@ scene.add(pointLight)
 * also see the light reflection.
 * We can control the light reflection with shininess and the color of this reflection with specular
 */
-const material = new THREE.MeshPhongMaterial()
-material.shininess = 100
-material.specular = new THREE.Color(0x1188ff)
+// const material = new THREE.MeshPhongMaterial()
+// material.shininess = 100
+// material.specular = new THREE.Color(0x1188ff)
 
-/* 7. MeshToonMaterial:
+/* 7. MeshToonMaterial: similar to MeshLambertMaterial but cartoonish. To add more steps to the coloration, you can use
+* the gradientMap property and use the gradientTexture
 */
+// const material = new THREE.MeshToonMaterial()
+// material.gradientMap = gradientTexture
+// !!! We see a gradient instead of a clear separation because the gradient is small and the magFilter try to fix it
+// with the mipmapping. Set the minFilter and magFilter to THREE.NearestFilter, we can also deactivate the mipmapping
+// with gradientTexture.generateMipmaps = false
+// gradientTexture.minFilter = THREE.NearestFilter
+// gradientTexture.magFilter = THREE.NearestFilter
+// gradientTexture.generateMipmaps = false
 
+/* 8. MeshStandardMaterial: use physically based rendering principles (PBR). Like the two precedent one, it supports
+* light but with more realistic algorithm and better parameters like roughness ans metalness.
+* We have access to the aoMap (ambient occlusion map), it will add shadows where the texture is dark. We can made a
+* second set of UV named uv2.
+* */
+const material = new THREE.MeshStandardMaterial()
+material.roughness = 0.65
+material.metalness = 0.45
+// material.map = doorTexture
+material.envMap = cubeEnvironmentMapTexture
+
+gui.add(material, "metalness").min(0).max(1).step(0.0001)
+gui.add(material, "roughness").min(0).max(1).step(0.0001)
 
 const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(0.5, 16, 16),
+    new THREE.SphereGeometry(0.5, 64, 64),
     material
 )
 const plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(2, 2, 16, 16),
+    new THREE.PlaneGeometry(2, 2, 100, 100),
     material
 )
-plane.position.y = 4
+sphere.position.y = 4
 const torus = new THREE.Mesh(
-    new THREE.TorusGeometry(2, 0.5, 16, 16),
+    new THREE.TorusGeometry(2, 0.5, 64, 120),
     material
 )
+/* We have access to the aoMap (ambient occlusion map), it will add shadows where the texture is dark. We can made a
+* second set of UV named uv2. In our case, It's the same coordinates as the default UV so we are going to re-use it
+* */
+// sphere.geometry.setAttribute('uv2', new THREE.BufferAttribute(sphere.geometry.attributes.uv.array, 2))
+// plane.geometry.setAttribute('uv2', new THREE.BufferAttribute(plane.geometry.attributes.uv.array, 2))
+// torus.geometry.setAttribute('uv2', new THREE.BufferAttribute(torus.geometry.attributes.uv.array, 2))
+// material.aoMap = ambientOcclusionTexture
+// material.aoMapIntensity = 1
+
+// gui.add(material, 'aoMapIntensity').min(0).max(10).step(0.001)
+
+/* Using Height Texture to create relief */
+// material.displacementMap = heightTexture
+// material.displacementScale = 0.05
+// gui.add(material, 'displacementScale').min(0).max(1.5).step(0.0001)
+
+/* Using metalness and roughness texture instead of specifying uniforms
+* Don't forget to comment the lines that change this uniforms before using texture*/
+// material.metalnessMap = metalnessTexture
+// material.roughnessMap = roughnessTexture
+
+/* Using normalMap to fake the normals orientation and add details on the surface regardless of the subdivision */
+// material.normalMap = normalTexture
+// material.normalScale.set(0.5, 0.5)
+
+/* Using the alphaMap , don't forget to set material transparent property to true*/
+// material.transparent = true
+// material.alphaMap = alphaTexture
+
+/* Other Materials :
+*        - MeshPhysicalMaterial: same as MeshStandardMaterial but with support of a clear coat effect
+*        - PointMaterial: Used to create particles
+*        -  ShaderMaterial and RawShaderMaterial: used to create your own material
+* */
+
+/* 12. Environment Map: it's an image of what is surrounding the scene, it can be used for reflexion or refraction but
+* also for general lightning.
+* Environment maps are supported by multiple materials but we are going to use MeshStandardMaterial
+* Three.js only supports cube environment maps.
+* To load a cube texture, we must use the CubeTextureLoader instead of the TextureLoader
+*
+* Take a look at HDRHaven website to find an hundred of awesome HDRIs (High Dynamic Range Imaging)
+* HDRI is one image for all cube faces
+* To convert HDRI to cubs map, use this online tool : https://matheowis.github.io/HDRI-to-CubeMap/
+* */
+
+
+
+
 
 scene.add(sphere, plane, torus)
 /**
@@ -166,9 +251,9 @@ const tick = () =>
     controls.update()
 
     // Rotate object
-    sphere.rotation.y = elapsedTime * 1
-    plane.rotation.y = elapsedTime * 1
-    torus.rotation.y = elapsedTime * 2
+    sphere.rotation.y = elapsedTime * 0.1
+    plane.rotation.y = elapsedTime * 0.1
+    torus.rotation.y = elapsedTime * 0.2
 
     // Render
     renderer.render(scene, camera)
