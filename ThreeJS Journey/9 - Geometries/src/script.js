@@ -46,7 +46,7 @@ const scene = new THREE.Scene()
 *
 * By combining this geometry, we can create pretty complex shapes
 * Let's begin with a Box example. A Box Geometry has 6 parameters (width, height, depth and widthSegments,
-*  heightSegments, depthSegment). The last three define how many subdivisions (triangles) should compose the relative
+* heightSegments, depthSegment). The last three define how many subdivisions (triangles) should compose the relative
 * face. A value of one (default) will divide the face by 2 while a subdivision of 2 will create 8 triangles per face.
 */
 const geometry = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2)
