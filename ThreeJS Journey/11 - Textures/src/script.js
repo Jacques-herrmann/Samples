@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 /**
  * Textures
+ *
  * Textures are image that will cover the surface of the geometries, there are many types and effect you can create
  * with textures.
  *      1. Color Textures (or Albedo): Most simple one, apply on geometry
