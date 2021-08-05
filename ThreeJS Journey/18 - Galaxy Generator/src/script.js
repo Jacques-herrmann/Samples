@@ -156,6 +156,9 @@ const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
+    // Rotate galaxy
+    points.rotation.y = elapsedTime * 0.3
+
     // Update controls
     controls.update()
 
