@@ -18,11 +18,17 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 /**
+ * Textures
+ */
+const textureLoader = new THREE.TextureLoader()
+const particleTexture = textureLoader.load('/textures/particles/8.png')
+
+/**
  * Galaxy
  */
 const parameters = {}
 parameters.count = 30000
-parameters.size = 0.04
+parameters.size = 0.4
 parameters.radius = 5
 parameters.branches = 4
 parameters.spin = 1.5
@@ -80,6 +86,7 @@ const generateGalaxy = () => {
 
     material = new THREE.PointsMaterial({
         size: parameters.size,
+        alphaMap: particleTexture,
         sizeAttenuation: true,
         depthWrite: false,
         blending: THREE.AdditiveBlending,
@@ -92,7 +99,7 @@ const generateGalaxy = () => {
 generateGalaxy()
 
 gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
-gui.add(parameters, 'size').min(0.001).max(0.1).step(0.001).onFinishChange(generateGalaxy)
+gui.add(parameters, 'size').min(0.01).max(1).step(0.01).onFinishChange(generateGalaxy)
 gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
 gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
 gui.add(parameters, 'spin').min(-5).max(5).step(0.001).onFinishChange(generateGalaxy)
@@ -158,6 +165,7 @@ const tick = () =>
 
     // Rotate galaxy
     points.rotation.y = elapsedTime * 0.3
+    points.rotation.z = Math.cos(elapsedTime) * 0.1
 
     // Update controls
     controls.update()
