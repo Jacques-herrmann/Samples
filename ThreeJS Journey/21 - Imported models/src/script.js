@@ -102,8 +102,8 @@ let mixer = null
 
 glTFLoader.load(
     '/models/Fox/glTF/Fox.gltf',
-    ///models/Duck/glTF-Draco/Duck.gltf',
-    //'/models/FlightHelmet/glTF/FlightHelmet.gltf',
+    // 'models/Duck/glTF-Draco/Duck.gltf',
+    // '/models/FlightHelmet/glTF/FlightHelmet.gltf',
     (gltf) => {
         mixer = new THREE.AnimationMixer(gltf.scene)
         const action = mixer.clipAction(gltf.animations[0])
