@@ -146,7 +146,7 @@ const clock = new THREE.Clock()
  * 3. mouseEnter and mouseLeave events
  *
  * We will create a "witness" variable containing the currently hovered object.
- * If an object intersects, but there was'nt one before, a mouseenter happened
+ * If an object intersects, but there wasn't one before, a mouseenter happened
  * If no objects intersects, but there was one before, a mouseleave happened
  *
  */

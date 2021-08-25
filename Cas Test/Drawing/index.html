@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3 - Basic Scene</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: aquamarine;
+        }
+        div {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="two">
+        <svg id="your-svg" width="500" height="500">
+            <!-- <rect width="300" height="100" style="fill:yellowgreen ;" id="your-path"/> -->
+            <path d="M 0 0 H 261 V 221 H 98 V 180 H 218 V 39 H 41 V 179 H 121 V 220 H -1 Z" stroke="yellowgreen" stroke-width="5" fill="#adff2f77" id="your-path"/>
+            
+            <!-- only to show where the point is -->
+            <!-- <circle id="stroke-point" cx="55" cy="52" r="2.5" fill="red" /> -->
+        </svg>
+    </div>
+  
+    <script src="./two.js"></script>
+    <!-- <script src="./paper-full.min.js"></script> -->
+    <script src="index.js"></script>
+</body>
+</html>
