@@ -25,14 +25,14 @@ const scene = new THREE.Scene()
 // Geometry
 const waterGeometry = new THREE.PlaneGeometry(3, 3, 512, 512)
 
-debugObject.depthColor = '#464a8c'
-debugObject.surfaceColor = '#fc0000'
+// debugObject.depthColor = '#464a8c'
+// debugObject.surfaceColor = '#fc0000'
 
 // debugObject.depthColor = '#121612'
 // debugObject.surfaceColor = '#c51111'
 
-// debugObject.depthColor = '#bac511'
-// debugObject.surfaceColor = '#0a8724'
+debugObject.depthColor = '#bac511'
+debugObject.surfaceColor = '#0a8724'
 
 // Material
 const waterMaterial = new THREE.ShaderMaterial({
