@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import WebGL from '../webgl'
-import config from '../config'
+import { config } from '../config'
 
 export default class DemoCube {
   constructor () {
@@ -27,7 +27,7 @@ export default class DemoCube {
 
   setMaterial () {
     this.material = new THREE.MeshStandardMaterial({
-      color: this.config.color
+      color: config.objects.demoCube.color
     })
   }
 

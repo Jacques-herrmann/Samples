@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import WebGL from './webgl'
-import config from './config'
+import { config } from './config'
 
 export default class Renderer {
   constructor () {

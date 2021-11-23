@@ -1,7 +1,7 @@
 import WebGL from './webgl'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import config from './config'
+import { config } from './config'
 
 export default class Camera {
   constructor () {
@@ -13,7 +13,9 @@ export default class Camera {
     this.canvas = this.webgl.canvas
 
     this.setInstance()
-    if (this.config.controls) { this.setOrbitControls() }
+    if (this.config.controls) {
+      this.setOrbitControls()
+    }
   }
 
   setInstance () {

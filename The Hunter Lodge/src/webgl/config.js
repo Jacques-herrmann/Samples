@@ -1,13 +1,20 @@
-const debugObject = {
+const config = {
   debug: true,
   global: {
-    background: '#211d20',
-    renderer: {},
+    renderer: {
+      background: '#211d20'
+    },
+    fog: {
+      color: '#211d20',
+      density: 0.5
+    },
     camera: {
       position: { x: 6, y: 4, z: 8 },
       controls: true
-    },
-    light: {
+    }
+  },
+  lights: {
+    ambient: {
       color: '#ffffff',
       intensity: 4,
       position: { x: 3.5, y: 2, z: -1.25 }
@@ -20,4 +27,23 @@ const debugObject = {
     }
   }
 }
-export default debugObject
+const options = {
+  number: {
+    min: -100,
+    max: 100,
+    step: 0.1
+  },
+  color: {
+    alpha: true,
+    view: 'color'
+  },
+  position: {
+    x: { min: -10, max: 10 },
+    y: { min: -10, max: 10 },
+    z: { min: -10, max: 10 }
+  }
+}
+export {
+  config,
+  options
+}

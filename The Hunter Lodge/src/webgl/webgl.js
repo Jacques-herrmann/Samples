@@ -33,6 +33,7 @@ export default class WebGL {
     this.world = new World()
 
     // Events
+    this.debug.on('updateDebug', this.updateDebug.bind(this))
     this.sizes.on('resize', this.resize.bind(this))
     this.time.on('tick', this.update.bind(this))
   }
@@ -71,6 +72,12 @@ export default class WebGL {
 
     this.camera.controls.dispose()
     this.renderer.instance.dispose()
-    if (this.debug.active) { this.debug.ui.destroy() }
+    if (this.debug.active) {
+      this.debug.ui.destroy()
+    }
+  }
+
+  updateDebug () {
+    console.log('debug update')
   }
 }

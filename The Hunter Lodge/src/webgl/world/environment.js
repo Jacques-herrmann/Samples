@@ -1,10 +1,10 @@
 import * as THREE from 'three'
 import WebGL from '../webgl'
-import config from '../config'
+import { config } from '../config'
 
 export default class Environment {
   constructor () {
-    this.config = config.global.light
+    this.config = config.lights
     this.webgl = new WebGL()
     this.scene = this.webgl.scene
     this.resources = this.webgl.resources
@@ -15,15 +15,15 @@ export default class Environment {
   }
 
   setLight () {
-    this.ambientLight = new THREE.DirectionalLight(this.config.color, this.config.intensity)
+    this.ambientLight = new THREE.DirectionalLight(this.config.ambient.color, this.config.ambient.intensity)
     this.ambientLight.castShadow = true
     this.ambientLight.shadow.camera.far = 15
     this.ambientLight.shadow.mapSize.set(1024, 1024)
     this.ambientLight.shadow.normalBias = 0.05
     this.ambientLight.position.set(
-      this.config.position.x,
-      this.config.position.y,
-      this.config.position.z
+      this.config.ambient.position.x,
+      this.config.ambient.position.y,
+      this.config.ambient.position.z
     )
     this.scene.add(this.ambientLight)
   }
