@@ -1,16 +1,12 @@
 const config = {
   debug: true,
   global: {
-    renderer: {
-      background: '#211d20'
-    },
-    fog: {
-      color: '#211d20',
-      density: 0.5
+    renderer: {},
+    scene: {
+      background: '#01020c'
     },
     camera: {
-      position: { x: 6, y: 4, z: 8 },
-      controls: true
+      position: { x: -20, y: 14, z: 70 }
     }
   },
   lights: {
@@ -25,6 +21,20 @@ const config = {
       position: { x: 0, y: 0, z: 0 },
       color: '#27AE60'
     }
+  },
+  shaders: {
+    snow: {
+      count: 80000,
+      size: 0.005,
+      maxHeight: 25,
+      radius: 43,
+      minY: -2,
+      fallingSpeed: 1,
+      windSpeed: 1,
+      randomness: 0.5,
+      particlesSize: 11,
+      color: '#9fa1c6'
+    }
   }
 }
 const options = {
@@ -38,9 +48,9 @@ const options = {
     view: 'color'
   },
   position: {
-    x: { min: -10, max: 10 },
-    y: { min: -10, max: 10 },
-    z: { min: -10, max: 10 }
+    x: { min: -100, max: 100 },
+    y: { min: -100, max: 100 },
+    z: { min: -100, max: 100 }
   }
 }
 export {

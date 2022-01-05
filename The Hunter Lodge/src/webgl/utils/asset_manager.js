@@ -1,8 +1,9 @@
 import { EventEmitter2 } from 'eventemitter2'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import * as THREE from 'three'
 
-export default class Resources extends EventEmitter2 {
+export default class AssetManager extends EventEmitter2 {
   constructor (sources) {
     super()
 
@@ -20,8 +21,13 @@ export default class Resources extends EventEmitter2 {
   setLoaders () {
     this.loaders = {}
     this.loaders.gltfLoader = new GLTFLoader()
+    this.loaders.dracoLoader = new DRACOLoader()
+    this.loaders.dracoLoader.setDecoderPath('draco/')
+    this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
     this.loaders.textureLoader = new THREE.TextureLoader()
     this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
+
+    this.loaders.dracoLoader.preload()
   }
 
   startLoading () {

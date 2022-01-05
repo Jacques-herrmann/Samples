@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import WebGL from './webgl'
+import Debug from './utils/debug'
 import { config } from './config'
 
 export default class Renderer {
@@ -8,12 +9,14 @@ export default class Renderer {
     console.log(config)
 
     this.webgl = new WebGL()
+    this.debug = new Debug()
     this.sizes = this.webgl.sizes
     this.scene = this.webgl.scene
     this.canvas = this.webgl.canvas
     this.camera = this.webgl.camera
 
     this.setInstance()
+    if (this.debug.active) this.setDebug()
   }
 
   setInstance () {
@@ -39,5 +42,10 @@ export default class Renderer {
 
   update () {
     this.instance.render(this.scene, this.camera.instance)
+  }
+
+  setDebug () {
+    this.debug.debugRenderer(this)
+    console.log('debug')
   }
 }

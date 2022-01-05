@@ -2,19 +2,22 @@ import WebGL from './webgl'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { config } from './config'
+import Debug from './utils/debug'
 
 export default class Camera {
   constructor () {
     this.config = config.global.camera
 
     this.webgl = new WebGL()
+    this.debug = new Debug()
     this.sizes = this.webgl.sizes
     this.scene = this.webgl.scene
     this.canvas = this.webgl.canvas
 
     this.setInstance()
-    if (this.config.controls) {
+    if (this.debug.active) {
       this.setOrbitControls()
+      this.setDebug()
     }
   }
 
@@ -23,7 +26,7 @@ export default class Camera {
       35,
       this.sizes.width / this.sizes.height,
       0.1,
-      100
+      200
     )
     this.instance.position.set(
       this.config.position.x,
@@ -45,5 +48,10 @@ export default class Camera {
 
   update () {
     this.controls.update()
+  }
+
+  setDebug () {
+    this.debug.debugCamera(this.instance)
+    console.log('debug')
   }
 }

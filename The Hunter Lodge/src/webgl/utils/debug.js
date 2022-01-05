@@ -1,16 +1,26 @@
+import * as THREE from 'three'
 import { Pane } from 'tweakpane'
 import { EventEmitter2 } from 'eventemitter2'
 import { config, options } from '../config'
+import WebGL from '../webgl'
+
+let instance = null
 
 export default class Debug extends EventEmitter2 {
   constructor () {
     super()
-    this.active = window.location.hash === '#debug'
+    // Singleton
+    if (instance) return instance
+    instance = this
 
-    if (config.debug || this.active) {
-      this.ui = new Pane({
-        title: 'Parameters'
-      })
+    this.active = config.debug || window.location.hash === '#debug'
+    this.folders = {}
+
+    if (this.active) {
+      // Attach Webgl to the window for console inspection
+      window.webgl = new WebGL()
+
+      this.ui = new Pane({ title: 'Parameters' })
       this.tabs = this.ui.addTab({
         pages: [
           { title: 'Basic' },
@@ -18,104 +28,83 @@ export default class Debug extends EventEmitter2 {
         ]
       })
       this.init()
+
+      // Add CSS to debug UI
       const panel = document.querySelector('.tp-dfwv')
       panel.style.width = '370px'
     }
   }
 
   init () {
-    this.initRenderer()
-    this.initCamera()
-    if (config.global.fog) this.initFog()
-    if (config.lights) this.initLights()
-    if (config.objects) this.initObjects()
+    if (config.lights) this.initFolders('Lights')
+    if (config.objects) this.initFolders('Objects')
   }
 
-  initRenderer () {
+  debugRenderer (renderer) {
+    console.log(renderer)
     this.tabs.pages.forEach(page => {
-      const folder = page.addFolder({
-        title: 'Renderer',
-        expand: true
-      })
-      const basicKeys = ['background']
+      const folder = page.addFolder({ title: 'Renderer', expand: true })
+
+      const basicKeys = []
       Object.keys(config.global.renderer).forEach(k => {
         if (page.title === 'Advanced' || basicKeys.includes(k)) {
-          folder.addInput(config.global.renderer, k, options[k] || null)
+          folder.addInput(renderer, k, options[k] || null)
         }
       })
     })
   }
 
-  initCamera () {
+  debugScene (scene) {
+    console.log(scene)
     this.tabs.pages.forEach(page => {
-      const folder = page.addFolder({
-        title: 'Camera',
-        expand: true
+      const folder = page.addFolder({ title: 'Scene', expand: true })
+      const configKeys = Object.keys(config.global.scene)
+
+      if (configKeys.includes('background')) {
+        folder.addInput(config.global.scene, 'background').on('change', () => {
+          scene.background = new THREE.Color(config.global.scene.background)
+        })
+        configKeys.splice(configKeys.indexOf('background'), 1)
+      }
+
+      if (configKeys.includes('fog')) {
+        folder.addInput(config.global.scene.fog, 'color', { label: 'fogColor' }).on('change', () => {
+          scene.fog = new THREE.Fog(config.global.scene.fog.color, config.global.scene.fog.color)
+        })
+        folder.addInput(config.global.scene.fog, 'density', { label: 'fogDensity' }).on('change', () => {
+          scene.fog = new THREE.Fog(config.global.scene.fog.color, config.global.scene.fog.color)
+        })
+        configKeys.splice(configKeys.indexOf('fog'), 1)
+      }
+
+      configKeys.forEach(k => {
+        if (page.title === 'Advanced') {
+          folder.addInput(scene, k, options[k] || null)
+        }
       })
+    })
+  }
+
+  debugCamera (camera) {
+    console.log(camera)
+    this.tabs.pages.forEach(page => {
+      const folder = page.addFolder({ title: 'Camera', expand: true })
       const basicKeys = ['position']
       Object.keys(config.global.camera).forEach(k => {
         if (page.title === 'Advanced' || basicKeys.includes(k)) {
-          folder.addInput(config.global.camera, k, options[k] || null)
+          folder.addInput(camera, k, options[k] || null)
         }
       })
+      folder.addSeparator()
     })
   }
 
-  initFog () {
+  initFolders (name) {
+    const folders = []
     this.tabs.pages.forEach(page => {
-      const folder = page.addFolder({
-        title: 'Fog',
-        expand: true
-      })
-      const basicKeys = ['color']
-      Object.keys(config.global.fog).forEach(k => {
-        if (page.title === 'Advanced' || basicKeys.includes(k)) {
-          folder.addInput(config.global.fog, k, options[k] || null)
-        }
-      })
+      folders.push(page.addFolder({ title: name, expand: true }))
     })
-  }
-
-  initLights () {
-    this.tabs.pages.forEach(page => {
-      const folder = page.addFolder({
-        title: 'Lights',
-        expand: true
-      })
-      const basicKeys = ['color', 'intensity']
-      Object.keys(config.lights).forEach(name => {
-        Object.keys(config.lights[name]).forEach(k => {
-          if (page.title === 'Advanced' || basicKeys.includes(k)) {
-            const option = Object.assign({}, options[k] || {}, {
-              label: `${name}-${k}`
-            })
-            folder.addInput(config.lights[name], k, option)
-          }
-        })
-        folder.addSeparator()
-      })
-    })
-  }
-
-  initObjects () {
-    this.tabs.pages.forEach(page => {
-      const folder = page.addFolder({
-        title: 'Objects',
-        expand: true
-      })
-      const basicKeys = ['color']
-      Object.keys(config.objects).forEach(name => {
-        Object.keys(config.objects[name]).forEach(k => {
-          if (page.title === 'Advanced' || basicKeys.includes(k)) {
-            const option = Object.assign({}, options[k] || {}, {
-              label: `${name}-${k}`
-            })
-            folder.addInput(config.objects[name], k, option)
-          }
-        })
-        folder.addSeparator()
-      })
-    })
+    this.folders[name.toLowerCase()] = folders
   }
 
   addFolder (tab, name) {
@@ -125,19 +114,46 @@ export default class Debug extends EventEmitter2 {
     })
   }
 
-  debugLight () {
-    console.log('light')
+  debugLight (light, name) {
+    console.log(light)
+    this.folders.lights.forEach((folder, f) => {
+      const basicKeys = ['position']
+      Object.keys(config.lights[name]).forEach(k => {
+        if (f === 1 || basicKeys.includes(k)) {
+          const option = Object.assign({}, options[k] || {}, {
+            label: `${name}-${k}`
+          })
+          folder.addInput(light, k, option)
+        }
+      })
+      folder.addSeparator()
+    })
   }
 
-  debugMaterial () {
+  debugObject (object, name) {
+    console.log(object)
+    this.folders.objects.forEach((folder, f) => {
+      const configKeys = Object.keys(config.objects[name])
+      if (configKeys.includes('color')) {
+        folder.addInput(config.objects[name], 'color').on('change', () => {
+          object.material.color.set(config.objects[name].color)
+        })
+        configKeys.splice(configKeys.indexOf('color'), 1)
+      }
+      const basicKeys = ['position']
+      configKeys.forEach(k => {
+        if (f === 1 || basicKeys.includes(k)) {
+          const option = Object.assign({}, options[k] || {}, {
+            label: `${name}-${k}`
+          })
+          folder.addInput(object, k, option)
+        }
+      })
+      folder.addSeparator()
+    })
+  }
+
+  debugMaterial (folder, obj, parameter) {
     console.log('material')
-  }
-
-  debugObject () {
-    console.log('object')
-  }
-
-  onUpdate () {
-    this.emit('updateDebug')
   }
 }

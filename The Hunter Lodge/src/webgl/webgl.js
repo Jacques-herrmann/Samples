@@ -4,9 +4,10 @@ import Time from './utils/time'
 import Camera from './camera'
 import Renderer from './renderer'
 import World from './world/world'
-import Resources from './utils/resources'
+import AssetManager from './utils/asset_manager'
 import Debug from './utils/debug'
 import sources from './sources'
+import { config } from './config'
 
 let instance = null
 
@@ -16,26 +17,26 @@ export default class WebGL {
     if (instance) return instance
     instance = this
 
-    // Global access
-    window.webgl = this
-
     // Options
     this.canvas = canvas
 
     // Setup
+    this.config = config.global.scene
     this.debug = new Debug()
     this.sizes = new Sizes()
     this.time = new Time()
-    this.resources = new Resources(sources)
+    this.assetManager = new AssetManager(sources)
     this.scene = new THREE.Scene()
     this.camera = new Camera()
     this.renderer = new Renderer()
     this.world = new World()
 
     // Events
-    this.debug.on('updateDebug', this.updateDebug.bind(this))
     this.sizes.on('resize', this.resize.bind(this))
     this.time.on('tick', this.update.bind(this))
+
+    if (this.debug.active) this.debug.debugScene(this.scene)
+    this.setupScene()
   }
 
   resize () {
@@ -79,5 +80,13 @@ export default class WebGL {
 
   updateDebug () {
     console.log('debug update')
+  }
+
+  setupScene () {
+    this.scene.background = new THREE.Color(this.config.background) || null
+    this.scene.fog = new THREE.Fog(
+      this.config.fog.color,
+      this.config.fog.density
+    ) || null
   }
 }
