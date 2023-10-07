@@ -1,0 +1,21 @@
+{
+  "name": "webgl-grid",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "glslify-loader": "^2.0.0",
+    "gsap": "^3.12.2",
+    "ogl": "^1.0.0",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2"
+  }
+}
